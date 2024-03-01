@@ -1,0 +1,16 @@
+# Compiled Python bytecode
+__pycache__/
+
+# Distribution / packaging artifacts
+dist/
+build/
+*.egg-info/ 
+
+# Sphinx documentation output
+docs/_build/ 
+
+# Commonly generated temporary files or editors' backup files 
+*~
+
+# dotenv for local environment variables (if you use one)
+.env 
