@@ -6,7 +6,7 @@ project = "Pychoreographer"
 author = "Rajaa Lechiri"
 copyright = f"{datetime.now().year}, {author}"
 extensions = ["sphinx.ext.intersphinx", "myst_parser"]
-intersphinx_mapping = {"mypy": ("https://mypy.readthedocs.io/en/stable/", None)}
+intersphinx_mapping = {"mypy": ("https://mypy.readthedocs.io/en/stable/", None)}  # noqa
 language = "en"
 html_theme = "furo"
 linkcheck_ignore = [
@@ -17,7 +17,7 @@ linkcheck_ignore = [
     "https://github.com/pycqa/pep8-naming#",
     "https://github.com/terrencepreilly/darglint#",
     "https://github.com/PyCQA/mccabe#",
-    "https://github.com/cjolowicz/cookiecutter-hypermodern-python/releases/tag/",
+    "https://github.com/cjolowicz/cookiecutter-hypermodern-python/releases/tag/",  # noqa
     "https://cookiecutter-hypermodern-python.readthedocs.io",
     "https://badgen.net/badge/status/alpha/d8624d",
 ]

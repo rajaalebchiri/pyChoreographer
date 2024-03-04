@@ -8,7 +8,7 @@ from nox.sessions import Session
 nox.options.sessions = ["docs"]
 owner, repository = "rajaalebchiri", "pychoreographer"
 labels = "cookiecutter", "documentation"
-bump_paths = "README.md", "docs/guide.rst", "docs/index.rst", "docs/quickstart.md"
+bump_paths = "README.md", "docs/guide.rst", "docs/index.rst", "docs/quickstart.md"  # noqa
 
 
 @nox.session(name="prepare-release")
@@ -22,7 +22,7 @@ def prepare_release(session: Session) -> None:
         *session.posargs,
     ]
     session.install("click", "github3.py")
-    session.run("python", "tools/prepare-github-release.py", *args, external=True)
+    session.run("python", "tools/prepare-github-release.py", *args, external=True)  # noqa
 
 
 @nox.session(name="publish-release")
@@ -30,7 +30,7 @@ def publish_release(session: Session) -> None:
     """Publish a GitHub release."""
     args = [f"--owner={owner}", f"--repository={repository}", *session.posargs]
     session.install("click", "github3.py")
-    session.run("python", "tools/publish-github-release.py", *args, external=True)
+    session.run("python", "tools/publish-github-release.py", *args, external=True)  # noqa
 
 
 nox.options.sessions = ["linkcheck"]

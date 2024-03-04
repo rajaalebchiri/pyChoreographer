@@ -7,7 +7,7 @@ import click
 
 @click.group()
 def cli():
-    """A customizable Python library for automating file operations, system monitoring, and routine tasks"""
+    """A customizable Python library for automating file operations, system monitoring, and routine tasks"""  # noqa
     pass
 
 
@@ -21,12 +21,12 @@ def validate_deps(r):
 
     Raises:
         FileNotFoundError: If the specified requirements file is not found.
-    """
+    """  # noqa
     try:
         output = subprocess.check_output(
             [sys.executable, "-m", "pip", "list", "--format", "json"]
         ).decode("utf-8")
-        installed_packages = {pkg["name"].lower(): pkg for pkg in json.loads(output)}
+        installed_packages = {pkg["name"].lower(): pkg for pkg in json.loads(output)}  # noqa
         missing_depencies = []
         with open(r, encoding="utf-8") as file:
             for line in file:
@@ -38,9 +38,9 @@ def validate_deps(r):
                 package_name = package_name.lower()
                 if (
                     package_name not in installed_packages
-                    or installed_packages[package_name]["version"] != package_version
+                    or installed_packages[package_name]["version"] != package_version  # noqa
                 ):
-                    missing_depencies.append(f"{package_name}=={package_version}")
+                    missing_depencies.append(f"{package_name}=={package_version}")  # noqa
         if len(missing_depencies) >= 1:
             click.echo("Missing Dependencies:")
             click.echo(missing_depencies)
