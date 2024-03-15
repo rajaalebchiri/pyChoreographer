@@ -1,8 +1,10 @@
 """Console script for pychoreo."""
+import os
 import sys
 import subprocess
 import json
 import click
+from files_operations import delete_empty_folders, delete_old_files
 
 
 @click.group()
@@ -49,6 +51,45 @@ def validate_deps(r):
 
     except FileNotFoundError:
         click.echo(f"Error: Requirements file '{r}' not found.")
+
+
+@cli.command()
+@click.option("--path", default=".", help="Path to the folder you want to clean.")  # noqa
+def clean_dirs(path):
+    """Cleans up a specified directory by removing empty directories.
+
+    Args:
+        path (str): Path to the folder you want to clean.
+
+    Raises:
+        FolderNotFound: If the specified folder is not found.
+    """  # noqa
+    if not os.path.exists(path):
+        print(f"Directory {path} does not exist.")
+        return False
+    delete_empty_folders(path)
+    return True
+
+
+@cli.command()
+@click.option("--path", default=".", help="Path to the folder you want to clean.")  # noqa
+@click.option("--days", default="500", help="Numbebr of Days")
+def clean_old_files(path, days):
+    """Cleans up a specified directory by deleting files older than 
+    a certain number of days.
+
+    Args:
+        path (str): Path to the folder you want to clean.
+        days (int): Number of days
+
+    Raises:
+        FolderNotFound: If the specified folder is not found.
+    """  # noqa
+    if not os.path.exists(path):
+        print(f"Directory {path} does not exist.")
+        return False
+    delete_old_files(path, days)
+    return True
 
 
 if __name__ == "__main__":
