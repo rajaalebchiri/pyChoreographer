@@ -13,10 +13,16 @@ $ pip install pychoreographer
 
 * **Environment Checker**
     * Script to validate if a project's required dependencies are installed within the current virtual environment.
+  
 * **Basic Directory Cleanup**
 
     * Delete Old Files: Automates the process of deleting files in a directory that are older than a specified number of days, helping in cleaning up temporary folders and reducing clutter.
+    
     * Remove Empty Folders: Scans and removes any empty directories within a specified path, keeping your file system organized and tidy.
+
+*  **Targeted File Organizing**
+  
+    * Sort Files by Extension: Automatically organizes files within a directory into subfolders based on their file extensions, such as images, documents, and more, for improved file management.
 
 <!-- features-end -->
 

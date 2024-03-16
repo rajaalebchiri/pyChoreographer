@@ -4,7 +4,7 @@ import sys
 import subprocess
 import json
 import click
-from files_operations import delete_empty_folders, delete_old_files
+from files_operations import delete_empty_folders, delete_old_files, organize_files_extensions
 
 
 @click.group()
@@ -89,6 +89,24 @@ def clean_old_files(path, days):
         print(f"Directory {path} does not exist.")
         return False
     delete_old_files(path, days)
+    return True
+
+
+@cli.command()
+@click.option("--path", default=".", help="Path to the folder you want to clean.")  # noqa
+def organize_files_folders(path):
+    """Sorts files into subfolders based on their file extension.
+
+    Args:
+        path (str): The path to the directory to organize.
+        
+    Raises:
+        FolderNotFound: If the specified folder is not found.
+    """  # noqa
+    if not os.path.exists(path):
+        print(f"Directory {path} does not exist.")
+        return False
+    organize_files_extensions(path)
     return True
 
 
