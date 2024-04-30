@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "Pychoreographer"
-version = "0.0.8"
+version = "0.0.9"
 authors = [
   { name="Rajaa Lebchiri", email="rajaa.lebchiri@gmail.com" },
 ]
