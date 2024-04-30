@@ -4,7 +4,7 @@ import sys
 import subprocess
 import json
 import click
-from files_operations import delete_empty_folders, delete_old_files, organize_files_extensions
+from files.files_operations import delete_empty_folders, delete_old_files, organize_files_extensions
 
 
 @click.group()
